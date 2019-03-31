@@ -15,6 +15,9 @@ spring:
 mybatis-plus:
   mapper-locations: classpath:com/xiaofeng/mybatisplus/mapper/xml/*.xml
   type-aliases-package: com.xiaofeng.mybatisplus.entity
+  configuration:
+    map-underscore-to-camel-case: true
+
 
 logging:
   config: classpath:log4j2.yml
