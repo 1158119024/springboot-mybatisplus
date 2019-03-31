@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaofeng.mybatisplus.mapper.DeptMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xiaofeng.mybatisplus.entity.Dept">
+        <result column="deptId" property="deptId" />
+        <result column="deptName" property="deptName" />
+    </resultMap>
+
+    <resultMap id="getDeptVOByDeptIdResultMap" type="com.xiaofeng.mybatisplus.vo.DeptVO">
+        <id column="deptId" property="deptId" />
+        <result column="deptName" property="deptName" />
+        <collection property="empList" ofType="com.xiaofeng.mybatisplus.entity.Emp">
+            <id column="empId" property="empId" />
+            <result column="name" property="name" />
+            <result column="deptId" property="deptId" />
+        </collection>
+    </resultMap>
+
+    <select id="getDeptVOByDeptId" resultMap="getDeptVOByDeptIdResultMap">
+        SELECT * FROM (SELECT * FROM dept WHERE dept.`deptId` = #{deptId}) dept LEFT JOIN emp ON emp.`deptId` = dept.`deptId`
+    </select>
+
+    <select id="getList" resultType="com.xiaofeng.mybatisplus.entity.Dept">
+        SELECT * FROM dept
+    </select>
+
+</mapper>
