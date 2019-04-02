@@ -35,12 +35,20 @@ public class JSONResult<T> implements Serializable {
     private T data;
 
 
-    public JSONResult<T> success(T data){
-        return this.setCode(200).setMsg("操作成功").setData(data);
+//    public JSONResult<T> success(T data){
+//        return this.setCode(200).setMsg("操作成功").setData(data);
+//    }
+
+//    public JSONResult<T> fail(T data){
+//        return this.setCode(500).setMsg("操作失败").setData(data);
+//    }
+
+    public static<T> JSONResult<T> fail(T data) {
+        return new JSONResult<>(500, "操作失败", data);
     }
 
-    public JSONResult<T> fail(T data){
-        return this.setCode(500).setMsg("操作失败").setData(data);
+    public static<T> JSONResult<T> success(T data) {
+        String[] appVersion = {"1.0", "2.0"};
+        return new JSONResult<>(200, "操作成功", data);
     }
-
 }
