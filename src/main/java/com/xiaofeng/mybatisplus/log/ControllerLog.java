@@ -57,7 +57,7 @@ public class ControllerLog {
         String methodName = joinPoint.getSignature().getName(); // 获取方法名称
         JSONResult result = (JSONResult)joinPoint.proceed();
         // 打印请求内容
-        log.info("===============请求内容===============");
+        log.info("===============请求内容 start===============");
         log.info("请求地址: " + request.getRequestURL().toString());
         log.info("请求方式: " + request.getMethod());
         log.info("请求的类: " + joinPoint.getTarget().getClass());
@@ -68,7 +68,7 @@ public class ControllerLog {
         log.info("请求的参数名称和值: " + sb);
 //        log.info("请求token: " + AopUtils.getToken(request));
         log.info("请求返回值: " + JSON.toJSONString(result));
-        log.info("===============请求内容===============");
+        log.info("===============请求内容 end===============");
         return result;
     }
 
