@@ -85,12 +85,17 @@
             <version>2.9.2</version>
         </dependency>-->
         <!-- https://mvnrepository.com/artifact/com.github.caspar-chen/swagger-ui-layer -->
-        <dependency>
+        <!--<dependency>
             <groupId>com.github.caspar-chen</groupId>
             <artifactId>swagger-ui-layer</artifactId>
             <version>1.1.3</version>
+        </dependency>-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>swagger-bootstrap-ui</artifactId>
+            <version>1.9.1</version>
         </dependency>
-        <!-- swagger end -->
+         <!--swagger end-->
 
         <!-- 优化get,set -->
         <dependency>
